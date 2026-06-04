@@ -180,7 +180,7 @@
   .middle .dot { background: var(--groen-licht); }
   .laggard .dot { background: #c9a820; }
   .groep-aanpak-hint { font-size: 12px; color: var(--grijs-mid); font-style: italic; padding-top: 6px; }
-  .vraag-box { background: var(--groen-donker); border-radius: 16px; padding: 32px 36px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .vraag-box { background: var(--groen-pale); border-radius: 16px; padding: 32px 36px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
   .vraag-box h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--geel); text-align: center; }
   .vraag-box p { font-size: 14px; color: var(--groen-pale); text-align: center; max-width: 500px; }
   .vraag-opties { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
@@ -291,38 +291,6 @@
     <div class="section-title">
       <div class="section-num">1</div>
       <div>
-        <h2>Vijf fasen van gedragsverandering</h2>
-        <div class="section-source">Bron: Wensing &amp; Grol (2020), Tabel 10.1, p. 199 — klik op een fase, dan op een strategie voor de bijpassende do's</div>
-      </div>
-    </div>
-
-    <div class="fasen-track" id="fasenTrack">
-      <div class="fase-card" onclick="toggleFase(0)"><div class="fase-inner"><div class="fase-nr">Fase 1</div><span class="fase-icon">👁️</span><div class="fase-naam">Oriëntatie</div><div class="fase-beschrijving">Iets voor het eerst zien of horen</div></div></div>
-      <div class="fase-card" onclick="toggleFase(1)"><div class="fase-inner"><div class="fase-nr">Fase 2</div><span class="fase-icon">🔍</span><div class="fase-naam">Inzicht</div><div class="fase-beschrijving">Eigen gedrag onder de loep</div></div></div>
-      <div class="fase-card" onclick="toggleFase(2)"><div class="fase-inner"><div class="fase-nr">Fase 3</div><span class="fase-icon">⚖️</span><div class="fase-naam">Acceptatie</div><div class="fase-beschrijving">Afweging, twijfel overwinnen</div></div></div>
-      <div class="fase-card" onclick="toggleFase(3)"><div class="fase-inner"><div class="fase-nr">Fase 4</div><span class="fase-icon">🔄</span><div class="fase-naam">Verandering</div><div class="fase-beschrijving">Daadwerkelijk anders doen</div></div></div>
-      <div class="fase-card" onclick="toggleFase(4)"><div class="fase-inner"><div class="fase-nr">Fase 5</div><span class="fase-icon">🏛️</span><div class="fase-naam">Borging</div><div class="fase-beschrijving">Nieuwe gewoonte, ingebed in organisatie</div></div></div>
-    </div>
-
-    <div class="fase-detail" id="faseDetail">
-      <div class="detail-grid">
-        <div class="detail-col barriere">
-          <h4>Barrières</h4>
-          <div class="barriere-tags" id="barriereTags"></div>
-        </div>
-        <div class="detail-col strategie">
-          <h4>Strategieën — klik voor bijpassende do's</h4>
-          <div class="strategie-btns" id="strategieBtns"></div>
-        </div>
-      </div>
-    </div>
-    <p class="detail-hint" id="detailHint">Klik op een fase voor barrières en strategieën</p>
-  </div>
-
-  <div class="section-wrap" style="margin-top: 56px;">
-    <div class="section-title">
-      <div class="section-num">2</div>
-      <div>
         <h2>Drie subgroepen en hun aanpak</h2>
         <div class="section-source">Bron: Wensing &amp; Grol (2020), Tabel 10.2, p. 202, gebaseerd op Green et al. (1989); Grol (1992); Rogers (2003)</div>
       </div>
@@ -385,6 +353,38 @@
       </div>
       <button class="vraag-btn" style="margin-top:8px; background: var(--geel); border-color: var(--geel); color: var(--groen-donker);" onclick="switchTab('dos', document.querySelectorAll('.tab-btn')[2])">Ga naar de do's &#x2192;</button>
     </div>
+  </div>
+  
+  <div class="section-wrap">
+    <div class="section-title">
+      <div class="section-num">2</div>
+      <div>
+        <h2>Vijf fasen van gedragsverandering</h2>
+        <div class="section-source">Bron: Wensing &amp; Grol (2020), Tabel 10.1, p. 199 — klik op een fase, dan op een strategie voor de bijpassende do's</div>
+      </div>
+    </div>
+
+    <div class="fasen-track" id="fasenTrack">
+      <div class="fase-card" onclick="toggleFase(0)"><div class="fase-inner"><div class="fase-nr">Fase 1</div><span class="fase-icon">👁️</span><div class="fase-naam">Oriëntatie</div><div class="fase-beschrijving">Iets voor het eerst zien of horen</div></div></div>
+      <div class="fase-card" onclick="toggleFase(1)"><div class="fase-inner"><div class="fase-nr">Fase 2</div><span class="fase-icon">🔍</span><div class="fase-naam">Inzicht</div><div class="fase-beschrijving">Eigen gedrag onder de loep</div></div></div>
+      <div class="fase-card" onclick="toggleFase(2)"><div class="fase-inner"><div class="fase-nr">Fase 3</div><span class="fase-icon">⚖️</span><div class="fase-naam">Acceptatie</div><div class="fase-beschrijving">Afweging, twijfel overwinnen</div></div></div>
+      <div class="fase-card" onclick="toggleFase(3)"><div class="fase-inner"><div class="fase-nr">Fase 4</div><span class="fase-icon">🔄</span><div class="fase-naam">Verandering</div><div class="fase-beschrijving">Daadwerkelijk anders doen</div></div></div>
+      <div class="fase-card" onclick="toggleFase(4)"><div class="fase-inner"><div class="fase-nr">Fase 5</div><span class="fase-icon">🏛️</span><div class="fase-naam">Borging</div><div class="fase-beschrijving">Nieuwe gewoonte, ingebed in organisatie</div></div></div>
+    </div>
+
+    <div class="fase-detail" id="faseDetail">
+      <div class="detail-grid">
+        <div class="detail-col barriere">
+          <h4>Barrières</h4>
+          <div class="barriere-tags" id="barriereTags"></div>
+        </div>
+        <div class="detail-col strategie">
+          <h4>Strategieën — klik voor bijpassende do's</h4>
+          <div class="strategie-btns" id="strategieBtns"></div>
+        </div>
+      </div>
+    </div>
+    <p class="detail-hint" id="detailHint">Klik op een fase voor barrières en strategieën</p>
   </div>
 
   <div class="bron-footer">

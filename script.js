@@ -153,6 +153,7 @@ const voorbeeldenData = [
     beschrijving: 'Hier beschrijft een instelling wat ze hebben gedaan, wat het opleverde en wat anderen ervan kunnen leren. Dit voorbeeld wordt binnenkort toegevoegd.',
     fasen: [0],
     strategieën: ['Persoonlijke benadering'],
+    email: '',
   },
   {
     id: 'mockup-2',
@@ -162,6 +163,7 @@ const voorbeeldenData = [
     beschrijving: 'Hier beschrijft een instelling wat ze hebben gedaan, wat het opleverde en wat anderen ervan kunnen leren. Dit voorbeeld wordt binnenkort toegevoegd.',
     fasen: [1, 2],
     strategieën: ['Audit, peer review en feedback'],
+    email: '',
   },
   {
     id: 'mockup-3',
@@ -171,6 +173,7 @@ const voorbeeldenData = [
     beschrijving: 'Hier beschrijft een instelling wat er minder goed ging en wat ze ervan hebben geleerd. Dit voorbeeld wordt binnenkort toegevoegd.',
     fasen: [3],
     strategieën: ['Herinrichting van zorgprocessen'],
+    email: '',
   },
   {
     id: 'mockup-4',
@@ -180,8 +183,9 @@ const voorbeeldenData = [
     beschrijving: 'Hier beschrijft een instelling wat ze hebben gedaan, wat het opleverde en wat anderen ervan kunnen leren. Dit voorbeeld wordt binnenkort toegevoegd.',
     fasen: [4],
     strategieën: ['Integratie in protocollen en zorgplannen'],
+    email: '',
   },
-    {
+  {
     id: 'v5',
     titel: 'test',
     instelling: 'test',
@@ -189,6 +193,7 @@ const voorbeeldenData = [
     beschrijving: '',
     fasen: [0],
     strategieën: ['Korte berichten via alle kanalen'],
+    email: '',
   },
 ];
 
@@ -361,6 +366,7 @@ function renderVoorbeelden() {
           <div class="vb-instelling">${v.instelling}</div>
           <div class="vb-beschrijving">${v.beschrijving}</div>
           <div class="vb-kaart-fasen">${faseBadges}</div>
+          ${v.email ? `<a class="vb-contact-btn" href="mailto:${v.email}">Neem contact op</a>` : ''}
         </div>
       </div>`;
     }).join('');

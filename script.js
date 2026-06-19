@@ -181,6 +181,15 @@ const voorbeeldenData = [
     fasen: [4],
     strategieën: ['Integratie in protocollen en zorgplannen'],
   },
+    {
+    id: 'v5',
+    titel: 'test',
+    instelling: 'test',
+    type: 'inspirerend',
+    beschrijving: '',
+    fasen: [0],
+    strategieën: ['Korte berichten via alle kanalen'],
+  },
 ];
 
 // Strategieën per fase, met gekoppelde do-id's

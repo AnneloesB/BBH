@@ -179,7 +179,9 @@ body { font-family: 'DM Sans', sans-serif; background: var(--groen-xpale); color
 .vb-titel { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--groen-donker); line-height: 1.3; margin-bottom: 4px; }
 .vb-instelling { font-size: 12px; color: var(--grijs-mid); font-style: italic; margin-bottom: 12px; }
 .vb-beschrijving { font-size: 13px; color: var(--tekst); line-height: 1.6; margin-bottom: 12px; }
-.vb-kaart-fasen { display: flex; flex-wrap: wrap; gap: 5px; }
+.vb-kaart-fasen { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+.vb-contact-btn { display: inline-block; padding: 6px 14px; background: var(--groen-donker); color: var(--wit); border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 600; transition: background 0.2s; }
+.vb-contact-btn:hover { background: var(--groen-mid); }
 
 /* INZENDFORMULIER */
 .vb-inzend-sectie { background: var(--wit); border: 2px solid var(--groen-pale); border-radius: 16px; padding: 28px 32px; margin-bottom: 40px; }
@@ -195,7 +197,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--groen-xpale); color
 .vb-form-breed { grid-column: 1 / -1; }
 .vb-form-veld label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--groen-mid); }
 .vb-form-optioneel { font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--grijs-mid); }
-.vb-form-veld input[type="text"], .vb-form-veld select, .vb-form-veld textarea { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--tekst); background: var(--groen-xpale); border: 1.5px solid var(--groen-pale); border-radius: 8px; padding: 10px 13px; outline: none; transition: border-color 0.2s; resize: vertical; }
+.vb-form-veld input[type="text"], .vb-form-veld input[type="email"], .vb-form-veld select, .vb-form-veld textarea { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--tekst); background: var(--groen-xpale); border: 1.5px solid var(--groen-pale); border-radius: 8px; padding: 10px 13px; outline: none; transition: border-color 0.2s; resize: vertical; }
 .vb-form-veld input:focus, .vb-form-veld select:focus, .vb-form-veld textarea:focus { border-color: var(--groen-licht); }
 .vb-radio-groep { display: flex; gap: 20px; padding: 10px 0; }
 .vb-radio-groep label { display: flex; align-items: center; gap: 7px; font-size: 14px; color: var(--tekst); cursor: pointer; }

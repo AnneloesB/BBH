@@ -411,6 +411,7 @@ function toggleVbForm() {
 function verstuurVoorbeeldMail() {
   const titel = document.getElementById('vbTitel').value.trim();
   const instelling = document.getElementById('vbInstelling').value.trim();
+  const email = document.getElementById('vbEmail').value.trim();
   const type = document.querySelector('input[name="vbType"]:checked')?.value || '';
   const fase = document.getElementById('vbFase').value;
   const strategie = document.getElementById('vbStrategie').value.trim();
@@ -419,6 +420,7 @@ function verstuurVoorbeeldMail() {
   const body = [
     `Titel: ${titel}`,
     `Instelling: ${instelling}`,
+    `E-mailadres: ${email || '(niet ingevuld)'}`,
     `Type: ${type}`,
     `Fase: ${fase}`,
     `Strategie: ${strategie}`,

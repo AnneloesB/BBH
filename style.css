@@ -224,3 +224,21 @@ body { font-family: 'DM Sans', sans-serif; background: var(--groen-xpale); color
   .vb-form-grid { grid-template-columns: 1fr; }
   .vb-inzend-header { flex-direction: column; align-items: flex-start; }
 }
+
+.vb-terug-knop {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  background: none;
+  border: 1.5px solid var(--groen-donker);
+  border-radius: 6px;
+  color: var(--groen-donker);
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.vb-terug-knop:hover {
+  background: var(--groen-xpale);
+}

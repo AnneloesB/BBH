@@ -3,8 +3,8 @@
 const faseNamen = ['Oriëntatie','Inzicht','Acceptatie','Verandering','Borging'];
 const faseIconen = ['👁️','🔍','⚖️','🔄','🏛️'];
 const faseBeschrijvingen = [
-  'De zorgverlener is nog niet bekend met de innovatie of ziet er geen aanleiding in.',
-  'De zorgverlener heeft kennis nodig en moet inzicht krijgen in het eigen handelen.',
+  'De zorgverlener is nog niet bekend met het beoogde zorgsysteem palliatieve zorg of ziet er geen aanleiding in om anders te werken.',
+  'De zorgverlener heeft kennis nodig over de 4 kernelementen en moet inzicht krijgen in de eigen verlening van palliatieve zorg.',
   'De zorgverlener weegt voor- en nadelen af en moet overtuigd worden van de haalbaarheid.',
   'De zorgverlener is bereid maar ondervindt praktische belemmeringen bij het daadwerkelijk anders doen.',
   'Het nieuwe gedrag moet ingebed worden zodat terugval wordt voorkomen.'
@@ -57,7 +57,7 @@ const alleDos = [
   {
     id: 'casuistiek', icon: '🩺',
     titel: 'Gebruik casuïstiek als leermiddel',
-    waarom: 'Concrete gevallen maken het abstracte zorgsysteem herkenbaar. Herkenning in de eigen praktijk werkt sterker dan theorie.',
+    waarom: 'Concrete casus over markering, PZP of casemanagement maken het beoogde zorgsysteem palliatieve zorg herkenbaar. Herkenning in de eigen praktijk werkt sterker dan theorie.',
     fasen: [1,2],
     voorbeeld: 'Breng in een MDO een casus in met de vraag: \'Op welk moment had hier de palliatieve fase gemarkeerd kunnen worden?\''
   },
@@ -71,7 +71,7 @@ const alleDos = [
   {
     id: 'ambassadeur', icon: '📣',
     titel: 'Activeer een lokale aandachtsvelder of ambassadeur',
-    waarom: 'Een collega die structureel aanwezig is houdt het thema levend in het team, ook als de transformatieaanjager er niet bij is.',
+    waarom: 'Een collega die structureel aanwezig is houdt palliatieve zorg levend in het team, ook als de transformatieaanjager er niet bij is.',
     fasen: [0,2],
     voorbeeld: 'Identificeer in een team de meest enthousiaste verpleegkundige over palliatieve zorg en ondersteun haar om die rol informeel op te pakken.'
   },
@@ -92,7 +92,7 @@ const alleDos = [
   {
     id: 'groter-doel', icon: '🌿',
     titel: 'Verbind aan het grotere doel',
-    waarom: 'Zorgverleners die zich verbinden aan een hoger doel zijn intrinsiek gemotiveerder en veerkrachtiger bij obstakels.',
+    waarom: 'Zorgverleners die zich verbinden aan een hoger doel zijn intrinsiek gemotiveerder en veerkrachtiger bij obstakels. Voor palliatieve zorg is dat: van kwestie van geluk naar staat van vertrouwen — betrouwbare palliatieve zorg voor alle inwoners van Midden-Nederland in 2030.',
     fasen: [2,3],
     voorbeeld: 'Sluit een gesprek af met: \'Waar doen we het eigenlijk voor?\' en koppel dat aan de centrale ambitie: van een kwestie van geluk naar een staat van vertrouwen.'
   },
@@ -120,7 +120,7 @@ const alleDos = [
   {
     id: 'structuur', icon: '🏗️',
     titel: 'Verankering in structuur en werkprocessen',
-    waarom: 'Gedrag ingebed in structuur is minder afhankelijk van individuele motivatie.',
+    waarom: 'Gedrag ingebed in structuur is minder afhankelijk van individuele motivatie. Denk aan vaste agendapunten voor PZP-gesprekken, inbedding van de surprise question in het EPD, of het structureel benoemen van een casemanager palliatieve zorg.',
     fasen: [3,4],
     voorbeeld: 'Zorg dat markering een vast onderdeel wordt van het opname- of overdrachtsformulier, zodat het standaard uitgevraagd wordt.'
   },
@@ -196,16 +196,16 @@ const voorbeeldenData = [
 const fasenData = [
   {
     naam: 'Oriëntatie',
-    barrières: ['Niet bekend met de innovatie','Geen interesse of gevoel van urgentie'],
+    barrières: ['Niet bekend met het beoogde zorgsysteem palliatieve zorg','Geen gevoel van urgentie voor het implementeren van het beoogd zorgsysteem'],
     strategieën: [
       { label: 'Korte berichten via alle kanalen', dos: ['communicatie'] },
       { label: 'Persoonlijke benadering', dos: ['naar-zorgverlener','ambassadeur','rolmodel'] },
-      { label: 'Confrontatie met eigen prestaties', dos: ['open-vraag','patientverhalen'] },
+      { label: 'Spiegel het eigen handelen', dos: ['open-vraag','patientverhalen'] },
     ]
   },
   {
     naam: 'Inzicht',
-    barrières: ['Geen kennis of begrip','Geen zelfinzicht of overschatting van eigen prestaties'],
+    barrières: ['Geen kennis of begrip','Geen zelfinzicht of overschatting van eigen verlening van het beoogd zorgsysteem'],
     strategieën: [
       { label: 'Heldere instructiematerialen en herhaling', dos: ['naar-zorgverlener','patientverhalen'] },
       { label: 'Audit, peer review en feedback', dos: ['spiegeldata','feedback','casuistiek'] },
@@ -222,7 +222,7 @@ const fasenData = [
   },
   {
     naam: 'Verandering',
-    barrières: ['Geen tijd of vaardigheden','Innovatie past niet in bestaand werkproces'],
+    barrières: ['Geen tijd of vaardigheden','Het beoogd zorgsysteem past nog niet in het bestaande werkproces'],
     strategieën: [
       { label: 'Extra ondersteuning en training', dos: ['expertise','drempel','waarden'] },
       { label: 'Herinrichting van zorgprocessen', dos: ['structuur','routine'] },
@@ -231,7 +231,7 @@ const fasenData = [
   },
   {
     naam: 'Borging',
-    barrières: ['Terugval in oud gedrag','Innovatie niet ingebed in de organisatie'],
+    barrières: ['Terugval in oud gedrag','Het beoogd zorgsysteem nog niet structureel ingebed in de organisatie'],
     strategieën: [
       { label: 'Monitoring, feedback en reminders', dos: ['spiegeldata','feedback'] },
       { label: 'Integratie in protocollen en zorgplannen', dos: ['structuur','routine','verantwoordelijke'] },
@@ -246,13 +246,15 @@ function switchTab(id, btn) {
   document.getElementById('tab-' + id).classList.add('active');
   btn.classList.add('active');
   if (id === 'theorie' && activeFase === null) toggleFase(0);
-  if (id === 'voorbeelden') { activeVbStrategie = null; activeVbType = null; renderVoorbeelden(); }
+  if (id === 'voorbeelden') { returnFase = null; activeVbStrategie = null; activeVbType = null; renderVoorbeelden(); }
 }
 
 // ===== FASEN =====
 let activeFase = null;
 let activeVbStrategie = null;
 let activeVbType = null;
+let returnFase = null;
+let returnScrollY = 0;
 
 function toggleFase(idx) {
   const cards = document.querySelectorAll('.fase-card');
@@ -282,8 +284,8 @@ function toggleFase(idx) {
       if (!d) return '';
       const faseBadges = d.fasen.map(f => `<span class="fase-badge">${faseIconen[f]} ${faseNamen[f]}</span>`).join('');
       return `
-        <div class="do-kaart" onclick="toggleDoKaart(this)">
-          <div class="do-kaart-header">
+        <div class="do-kaart">
+          <div class="do-kaart-header" onclick="toggleDoKaart(this.closest('.do-kaart'))">
             <div class="do-kaart-icon">${d.icon}</div>
             <div class="do-kaart-titel">${d.titel}</div>
             <div class="do-kaart-chevron">&#x25BC;</div>
@@ -337,7 +339,7 @@ function renderVoorbeelden() {
   if (activeVbStrategie) {
     filtersHtml += `<div class="vb-strategie-chip">Strategie: ${activeVbStrategie} <button class="vb-chip-sluit" onclick="activeVbStrategie=null; renderVoorbeelden()">✕</button></div>`;
   }
-  filtersEl.innerHTML = filtersHtml;
+  filtersEl.innerHTML = (returnFase !== null ? '<button class="vb-terug-knop" onclick="gaTerug()">← Terug naar strategie</button>' : '') + filtersHtml;
 
   let resultaten = voorbeeldenData;
   if (activeVbStrategie) resultaten = resultaten.filter(v => v.strategieën && v.strategieën.includes(activeVbStrategie));
@@ -371,12 +373,29 @@ function setVbType(type) {
 }
 
 function openVoorbeeldenVoorStrategie(strategieLabel) {
+  const savedFase = activeFase;
+  const savedScroll = window.scrollY;
   const btn = document.querySelectorAll('.tab-btn')[2];
   activeVbStrategie = null;
   activeVbType = null;
   switchTab('voorbeelden', btn);
+  returnFase = savedFase;
+  returnScrollY = savedScroll;
   activeVbStrategie = strategieLabel;
   renderVoorbeelden();
+}
+
+function gaTerug() {
+  const faseOmTerug = returnFase;
+  const scrollOmTerug = returnScrollY;
+  returnFase = null;
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-theorie').classList.add('active');
+  document.querySelectorAll('.tab-btn')[1].classList.add('active');
+  activeFase = null;
+  if (faseOmTerug !== null) toggleFase(faseOmTerug);
+  window.scrollTo({ top: scrollOmTerug, behavior: 'instant' });
 }
 
 function toggleVbForm() {

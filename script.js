@@ -187,13 +187,13 @@ const voorbeeldenData = [
   },
   {
     id: 'v5',
-    titel: 'test',
-    instelling: 'test',
+    titel: 'Dit is even een testvoorbeeld',
+    instelling: 'UMCU',
     type: 'inspirerend',
-    beschrijving: '',
-    fasen: [0],
+    beschrijving: 'Ik wil de even testen of dit goed werkt',
+    fasen: [1],
     strategieën: ['Korte berichten via alle kanalen'],
-    email: '',
+    email: 'anneloes.bork@tpz-midden.nl',
   },
 ];
 

@@ -4,252 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bewust bekwaam in de palliatieve zorg – Handreiking voor transformatieaanjagers</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
-
-  :root {
-    --groen-donker: #46571b;
-    --groen-licht: #93ab67;
-    --geel: #ebdc86;
-    --groen-mid: #6a8040;
-    --groen-pale: #d4dfc0;
-    --groen-xpale: #edf2e3;
-    --tekst: #2a3410;
-    --wit: #fdfef8;
-    --grijs-mid: #9aa085;
-    --shadow: rgba(70,87,27,0.15);
-    --oranje-pale: #fdf0e8;
-    --oranje: #b35c2c;
-    --oranje-border: #f0c9a8;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--groen-xpale); color: var(--tekst); min-height: 100vh; padding: 0 0 80px; }
-
-  /* HEADER */
-  .page-header { background: var(--groen-donker); color: var(--wit); padding: 48px 48px 40px; position: relative; overflow: hidden; }
-  .page-header::after { content: ''; position: absolute; right: -80px; bottom: -80px; width: 320px; height: 320px; border-radius: 50%; background: var(--groen-licht); opacity: 0.18; }
-  .page-header::before { content: ''; position: absolute; right: 80px; bottom: 20px; width: 160px; height: 160px; border-radius: 50%; background: var(--geel); opacity: 0.13; }
-  .header-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--groen-licht); margin-bottom: 10px; }
-  .page-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 3.5vw, 38px); line-height: 1.2; color: var(--wit); max-width: 680px; }
-  .header-sub { margin-top: 12px; font-size: 14px; color: var(--groen-pale); max-width: 560px; line-height: 1.6; }
-
-  /* TABS */
-  .tabs-bar { background: var(--groen-donker); padding: 0 48px; display: flex; gap: 4px; border-top: 1px solid rgba(255,255,255,0.1); }
-  .tab-btn { background: none; border: none; color: var(--groen-pale); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 16px 24px 14px; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s ease; white-space: nowrap; }
-  .tab-btn:hover { color: var(--wit); }
-  .tab-btn.active { color: var(--geel); border-bottom-color: var(--geel); }
-  .tab-panel { display: none; }
-  .tab-panel.active { display: block; }
-
-  /* SECTION WRAP */
-  .section-wrap { padding: 52px 48px 0; max-width: 1200px; margin: 0 auto; }
-
-  /* INTRO */
-  .intro-card { background: var(--wit); border: 2px solid var(--groen-pale); border-radius: 16px; padding: 40px 44px; max-width: 780px; line-height: 1.75; }
-  .intro-card h2 { font-family: 'DM Serif Display', serif; font-size: clamp(20px, 2.5vw, 28px); color: var(--groen-donker); margin-bottom: 20px; }
-  .intro-card p { font-size: 15px; color: var(--tekst); margin-bottom: 16px; }
-  .intro-card p:last-child { margin-bottom: 0; }
-  .vier-knoppen { background: var(--groen-xpale); border-left: 4px solid var(--groen-licht); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 20px 0; }
-  .vier-knoppen ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .vier-knoppen li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--groen-donker); font-weight: 500; }
-  .vier-knoppen li::before { content: '→'; color: var(--groen-licht); font-weight: 700; flex-shrink: 0; }
-
-  /* SECTION TITLES */
-  .section-title { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
-  .section-num { width: 36px; height: 36px; background: var(--groen-donker); color: var(--geel); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 17px; flex-shrink: 0; }
-  .section-title h2 { font-family: 'DM Serif Display', serif; font-size: clamp(18px, 2.5vw, 26px); color: var(--groen-donker); }
-  .section-source { font-size: 12px; color: var(--grijs-mid); margin-top: 4px; }
-
-  /* FASEN TRACK */
-  .fasen-track { display: flex; align-items: stretch; gap: 0; }
-  .fase-card { flex: 1; position: relative; cursor: pointer; transition: transform 0.25s ease; }
-  .fase-card:hover { transform: translateY(-4px); }
-  .fase-card:hover .fase-inner { box-shadow: 0 12px 32px var(--shadow); }
-  .fase-inner { background: var(--wit); border: 2px solid var(--groen-pale); border-radius: 12px 4px 4px 12px; padding: 24px 20px 20px; height: 100%; transition: box-shadow 0.25s, border-color 0.25s, background 0.25s; }
-  .fase-card:not(:first-child) .fase-inner { border-radius: 4px; }
-  .fase-card:last-child .fase-inner { border-radius: 4px 12px 12px 4px; }
-  .fase-card:not(:last-child)::after { content: ''; position: absolute; right: -16px; top: 50%; transform: translateY(-50%); z-index: 10; width: 0; height: 0; border-left: 16px solid var(--groen-pale); border-top: 24px solid transparent; border-bottom: 24px solid transparent; transition: border-left-color 0.25s; }
-  .fase-card:hover:not(:last-child)::after { border-left-color: var(--groen-licht); }
-  .fase-card.active .fase-inner { background: var(--groen-donker); border-color: var(--groen-donker); box-shadow: 0 8px 28px var(--shadow); }
-  .fase-card.active:not(:last-child)::after { border-left-color: var(--groen-donker); }
-  .fase-nr { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--groen-licht); margin-bottom: 6px; transition: color 0.25s; }
-  .fase-card.active .fase-nr { color: var(--geel); }
-  .fase-icon { font-size: 32px; margin-bottom: 10px; display: block; line-height: 1; }
-  .fase-naam { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--groen-donker); transition: color 0.25s; }
-  .fase-card.active .fase-naam { color: var(--wit); }
-  .fase-beschrijving { font-size: 12px; color: var(--grijs-mid); margin-top: 4px; line-height: 1.4; transition: color 0.25s; }
-  .fase-card.active .fase-beschrijving { color: var(--groen-pale); }
-
-  /* FASE DETAIL */
-  .fase-detail { background: var(--wit); border: 2px solid var(--groen-pale); border-radius: 12px; padding: 28px 32px; margin-top: 12px; display: none; animation: fadeSlide 0.3s ease; }
-  .fase-detail.visible { display: block; }
-  .detail-hint { text-align: center; font-size: 12px; color: var(--grijs-mid); padding: 16px 0 0; font-style: italic; }
-
-  /* BARRIERE + STRATEGIE COLUMNS */
-  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .detail-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
-  .detail-col.barriere h4 { color: var(--oranje); }
-  .detail-col.strategie h4 { color: var(--groen-mid); }
-  .barriere-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .btag { display: inline-block; padding: 6px 12px; border-radius: 20px; font-size: 13px; background: var(--oranje-pale); color: #8a3d14; border: 1px solid var(--oranje-border); }
-
-  /* STRATEGIE BUTTONS — clickable */
-  .strategie-btns { display: flex; flex-direction: column; gap: 8px; }
-  .strategie-btn {
-    display: flex; align-items: center; justify-content: space-between; gap: 10px;
-    background: var(--groen-xpale); border: 2px solid var(--groen-pale);
-    border-radius: 10px; padding: 10px 14px;
-    cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 13px;
-    color: var(--groen-donker); font-weight: 500; text-align: left;
-    transition: all 0.18s ease;
-  }
-  .strategie-btn:hover { border-color: var(--groen-donker); background: var(--wit); box-shadow: 0 3px 10px var(--shadow); }
-  .strategie-btn.active { background: var(--groen-donker); border-color: var(--groen-donker); color: var(--geel); }
-  .strategie-btn-arrow { font-size: 12px; flex-shrink: 0; transition: transform 0.18s; }
-  .strategie-btn.active .strategie-btn-arrow { transform: rotate(90deg); }
-  .strategie-dos-count { font-size: 10px; font-weight: 700; background: var(--groen-pale); color: var(--groen-donker); border-radius: 10px; padding: 2px 7px; flex-shrink: 0; }
-  .strategie-btn.active .strategie-dos-count { background: rgba(255,255,255,0.2); color: var(--geel); }
-
-  /* INLINE DOS PANEL below strategie button */
-  .strategie-dos-panel {
-    display: none; margin-top: 6px; margin-bottom: 4px;
-    background: var(--wit); border: 2px solid var(--groen-donker);
-    border-radius: 10px; overflow: hidden;
-    animation: fadeSlide 0.25s ease;
-  }
-  .strategie-dos-panel.visible { display: block; }
-  .sdp-header { background: var(--groen-donker); padding: 10px 16px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--geel); }
-  .sdp-naar-dos {
-    display: inline-flex; align-items: center; gap: 6px; margin: 12px 16px 0;
-    font-size: 11px; font-weight: 600; color: var(--groen-mid);
-    cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
-    transition: color 0.15s;
-  }
-  .sdp-naar-dos:hover { color: var(--groen-donker); }
-  .sdp-kaarten { padding: 12px 16px 16px; display: flex; flex-direction: column; gap: 10px; }
-
-  /* Mini do-kaart inside strategie panel */
-  .mini-do-kaart {
-    background: var(--groen-xpale); border: 1px solid var(--groen-pale);
-    border-radius: 8px; padding: 12px 14px; cursor: pointer;
-    transition: all 0.15s ease;
-  }
-  .mini-do-kaart:hover { border-color: var(--groen-donker); background: var(--wit); }
-  .mini-do-kaart.open { border-color: var(--groen-donker); background: var(--wit); }
-  .mini-do-header { display: flex; align-items: center; gap: 10px; }
-  .mini-do-icon { font-size: 16px; flex-shrink: 0; }
-  .mini-do-titel { font-size: 13px; font-weight: 600; color: var(--groen-donker); flex: 1; }
-  .mini-do-chevron { font-size: 11px; color: var(--grijs-mid); transition: transform 0.2s; flex-shrink: 0; }
-  .mini-do-kaart.open .mini-do-chevron { transform: rotate(180deg); color: var(--groen-donker); }
-  .mini-do-body { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--groen-pale); }
-  .mini-do-kaart.open .mini-do-body { display: block; }
-  .mini-do-waarom { font-size: 12px; color: var(--grijs-mid); line-height: 1.55; font-style: italic; margin-bottom: 10px; }
-  .mini-do-fasen { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
-  .fase-badge { display: inline-block; padding: 3px 9px; border-radius: 14px; font-size: 11px; font-weight: 600; background: var(--groen-xpale); color: var(--groen-donker); border: 1px solid var(--groen-pale); }
-  .mini-do-voorbeeld-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--groen-mid); margin-bottom: 6px; }
-  .mini-do-voorbeeld { background: var(--groen-xpale); border-radius: 6px; padding: 10px 12px; font-size: 12px; line-height: 1.6; color: var(--tekst); border-left: 3px solid var(--groen-licht); }
-
-  /* GROEPEN */
-  .groepen-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
-  .groep-card { background: var(--wit); border: 2px solid var(--groen-pale); border-radius: 16px; padding: 28px 24px 24px; cursor: pointer; transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s; position: relative; overflow: hidden; }
-  .groep-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; border-radius: 14px 14px 0 0; }
-  .groep-card.innovator::before { background: var(--groen-donker); }
-  .groep-card.middle::before { background: var(--groen-licht); }
-  .groep-card.laggard::before { background: var(--geel); }
-  .groep-card:hover { transform: translateY(-5px); box-shadow: 0 14px 36px var(--shadow); border-color: var(--groen-licht); }
-  .groep-card.selected { border-color: var(--groen-donker); box-shadow: 0 8px 28px var(--shadow); }
-  .groep-card.selected.innovator { background: linear-gradient(160deg, #edf2e3, #f8faee); }
-  .groep-card.selected.middle { background: linear-gradient(160deg, #f2f6e8, #f8faf0); }
-  .groep-card.selected.laggard { background: linear-gradient(160deg, #fdf9e3, #fefdf5); }
-  .groep-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
-  .innovator .groep-badge { background: var(--groen-donker); color: var(--geel); }
-  .middle .groep-badge { background: var(--groen-licht); color: var(--groen-donker); }
-  .laggard .groep-badge { background: var(--geel); color: var(--groen-donker); }
-  .groep-figuur { font-size: 56px; text-align: center; margin: 14px 0; display: block; }
-  .groep-naam { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--groen-donker); margin-bottom: 8px; }
-  .groep-motivatie { font-size: 13px; color: var(--grijs-mid); margin-bottom: 16px; line-height: 1.5; }
-  .groep-aanpak { border-top: 1px solid var(--groen-pale); padding-top: 14px; display: none; animation: fadeSlide 0.3s ease; }
-  .groep-card.selected .groep-aanpak { display: block; }
-  .groep-card.selected .groep-aanpak-hint { display: none; }
-  .groep-aanpak h5 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--groen-mid); margin-bottom: 10px; }
-  .aanpak-items { display: flex; flex-direction: column; gap: 7px; }
-  .aanpak-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; line-height: 1.45; color: var(--tekst); }
-  .aanpak-item .dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-  .innovator .dot { background: var(--groen-donker); }
-  .middle .dot { background: var(--groen-licht); }
-  .laggard .dot { background: #c9a820; }
-  .groep-aanpak-hint { font-size: 12px; color: var(--grijs-mid); font-style: italic; padding-top: 6px; }
-  .vraag-box { background: var(--groen-pale); border-radius: 16px; padding: 32px 36px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-  .vraag-box h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--geel); text-align: center; }
-  .vraag-box p { font-size: 14px; color: var(--groen-pale); text-align: center; max-width: 500px; }
-  .vraag-opties { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-  .vraag-btn { background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.25); color: var(--wit); padding: 12px 24px; border-radius: 40px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.22s ease; }
-  .vraag-btn:hover { background: rgba(255,255,255,0.18); border-color: var(--geel); color: var(--geel); }
-  .vraag-btn.actief { background: var(--geel); border-color: var(--geel); color: var(--groen-donker); }
-  .vraag-resultaat { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 20px 28px; width: 100%; max-width: 600px; display: none; animation: fadeSlide 0.3s ease; }
-  .vraag-resultaat.visible { display: block; }
-  .vraag-resultaat h4 { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--groen-licht); margin-bottom: 12px; }
-  .vraag-resultaat ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .vraag-resultaat li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--wit); line-height: 1.45; }
-  .vraag-resultaat li::before { content: '→'; color: var(--geel); flex-shrink: 0; font-weight: 700; }
-
-  /* DOS TAB */
-  .dos-fase-nav { display: flex; gap: 0; margin-bottom: 32px; border-radius: 12px; overflow: hidden; border: 2px solid var(--groen-pale); }
-  .dos-fase-btn { flex: 1; background: var(--wit); border: none; border-right: 1px solid var(--groen-pale); padding: 14px 10px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; color: var(--grijs-mid); transition: all 0.18s ease; text-align: center; line-height: 1.4; }
-  .dos-fase-btn:last-child { border-right: none; }
-  .dos-fase-btn:hover { background: var(--groen-xpale); color: var(--groen-donker); }
-  .dos-fase-btn.active { background: var(--groen-donker); color: var(--geel); font-weight: 600; }
-  .dos-fase-icon { display: block; font-size: 20px; margin-bottom: 4px; }
-
-  .dos-fase-panel { display: none; }
-  .dos-fase-panel.active { display: block; }
-
-  .dos-fase-header { margin-bottom: 28px; }
-  .dos-fase-header h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--groen-donker); margin-bottom: 6px; }
-  .dos-fase-header p { font-size: 13px; color: var(--grijs-mid); line-height: 1.6; max-width: 680px; }
-
-  .dos-strategie-groep { margin-bottom: 32px; }
-  .dos-strategie-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--groen-mid); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-  .dos-strategie-label::after { content: ''; flex: 1; height: 1px; background: var(--groen-pale); }
-
-  .dos-kaarten { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
-  .do-kaart { background: var(--wit); border: 2px solid var(--groen-pale); border-radius: 14px; overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
-  .do-kaart:hover { transform: translateY(-3px); box-shadow: 0 10px 28px var(--shadow); border-color: var(--groen-licht); }
-  .do-kaart.open { border-color: var(--groen-donker); }
-  .do-kaart-header { padding: 18px 20px 14px; display: flex; align-items: flex-start; gap: 12px; }
-  .do-kaart-icon { width: 36px; height: 36px; border-radius: 9px; background: var(--groen-xpale); display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
-  .do-kaart.open .do-kaart-icon { background: var(--groen-donker); }
-  .do-kaart-titel { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--groen-donker); line-height: 1.3; flex: 1; }
-  .do-kaart-chevron { font-size: 13px; color: var(--grijs-mid); transition: transform 0.25s; flex-shrink: 0; margin-top: 3px; }
-  .do-kaart.open .do-kaart-chevron { transform: rotate(180deg); color: var(--groen-donker); }
-  .do-kaart-body { display: none; padding: 0 20px 18px; border-top: 1px solid var(--groen-pale); margin: 0 20px; animation: fadeSlide 0.25s ease; }
-  .do-kaart.open .do-kaart-body { display: block; padding-top: 14px; }
-  .do-kaart-waarom { font-size: 13px; color: var(--grijs-mid); line-height: 1.6; margin-bottom: 12px; font-style: italic; }
-  .do-kaart-fasen { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
-  .do-kaart-voorbeeld-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--groen-mid); margin-bottom: 6px; }
-  .do-kaart-voorbeeld { background: var(--groen-xpale); border-radius: 8px; padding: 11px 13px; font-size: 13px; line-height: 1.6; color: var(--tekst); border-left: 3px solid var(--groen-licht); }
-
-  /* FOOTER */
-  .bron-footer { text-align: center; font-size: 12px; color: var(--grijs-mid); padding: 40px 48px 0; max-width: 1200px; margin: 40px auto 0; border-top: 1px solid var(--groen-pale); line-height: 1.7; }
-  .bron-footer strong { color: var(--groen-mid); }
-
-  @keyframes fadeSlide { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
-
-  @media (max-width: 768px) {
-    .section-wrap { padding: 32px 20px 0; }
-    .page-header { padding: 28px 20px; }
-    .tabs-bar { padding: 0 16px; overflow-x: auto; }
-    .fasen-track { flex-direction: column; gap: 8px; }
-    .fase-card:not(:last-child)::after { display: none; }
-    .fase-inner { border-radius: 12px !important; }
-    .detail-grid { grid-template-columns: 1fr; }
-    .groepen-container { grid-template-columns: 1fr; }
-    .dos-fase-nav { flex-wrap: wrap; }
-    .dos-fase-btn { flex: 1 1 30%; }
-    .dos-kaarten { grid-template-columns: 1fr; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -261,8 +16,8 @@
 
 <div class="tabs-bar">
   <button class="tab-btn active" onclick="switchTab('intro', this)">Introductie</button>
-  <button class="tab-btn" onclick="switchTab('theorie', this)">Theoretisch kader</button>
-  <button class="tab-btn" onclick="switchTab('dos', this)">Do's voor de praktijk</button>
+  <button class="tab-btn" onclick="switchTab('theorie', this)">Strategieën voor in de praktijk</button>
+  <button class="tab-btn" onclick="switchTab('voorbeelden', this)">Voorbeelden uit de praktijk</button>
 </div>
 
 <!-- ===== INTRO ===== -->
@@ -280,7 +35,8 @@
           <li>Gemak verhogen</li>
         </ul>
       </div>
-      <p>Deze handreiking biedt concrete do's voor de praktijk, om samen te werken aan bewust bekwaam handelen in de palliatieve zorg. Het tabblad <em>Theoretisch kader</em> laat zien welke wetenschappelijke inzichten hieraan ten grondslag liggen en verbindt die inzichten direct aan de do's.</p>
+      <p>Een verandertraject vraagt om aandacht op twee niveaus. Het model van Kotter beschrijft hoe je als organisatie een verandertraject inricht: urgentie creëren, een coalitie vormen, resultaten verankeren. Deze handreiking richt zich op het niveau daaronder, wat er gebeurt bij de individuele zorgverlener binnen dat traject: van een eerste signaal oppikken tot het zich eigen maken van nieuw gedrag.</p>
+      <p>Niet elke zorgverlener doorloopt dat proces op dezelfde manier of in hetzelfde tempo. Sommigen pakken een nieuw inzicht direct op, anderen hebben tijd en een duwtje van collega's nodig, weer anderen bewegen pas mee als er duidelijke kaders zijn. Deze handreiking houdt rekening met dat onderscheid en biedt voor elke fase concrete do's voor de praktijk.</p>
     </div>
   </div>
 </div>
@@ -291,76 +47,8 @@
     <div class="section-title">
       <div class="section-num">1</div>
       <div>
-        <h2>Drie subgroepen en hun aanpak</h2>
-        <div class="section-source">Bron: Wensing &amp; Grol (2020), Tabel 10.2, p. 202, gebaseerd op Green et al. (1989); Grol (1992); Rogers (2003)</div>
-      </div>
-    </div>
-
-    <div class="intro-card" style="margin-bottom: 32px; max-width: 100%;">
-      <p>Voordat je aan de slag gaat met de fasen en de bijbehorende do's, is het zinvol om te bepalen met <em>wie</em> je te maken hebt. Niet elke zorgverlener reageert op dezelfde manier op verandering. Wensing en Grol (2020) onderscheiden drie subgroepen, elk met een eigen motivatie en een andere aanpak. De groepsindeling is geen oordeel, maar een <strong>voorbereidende lens</strong>: zij helpt je de juiste strategie te kiezen binnen de veranderingsfase waarin iemand zich bevindt.</p>
-    </div>
-
-    <div class="groepen-container">
-      <div class="groep-card innovator" onclick="selectGroep('innovator', this)">
-        <div class="groep-badge">&#x1F31F; Vroege vernieuwers</div><span class="groep-figuur">🧑‍🔬</span>
-        <div class="groep-naam">Vroege vernieuwers</div>
-        <div style="font-size:11px;color:var(--grijs-mid);font-style:italic;margin-bottom:8px;">ook wel: innovators</div>
-        <div class="groep-motivatie">Intrinsiek gemotiveerd. Zien de voordelen zelf en zoeken actief nieuwe kennis op.</div>
-        <div class="groep-aanpak-hint">Klik voor de aanpak &#x2193;</div>
-        <div class="groep-aanpak"><h5>Passende aanpak</h5><div class="aanpak-items">
-          <div class="aanpak-item"><span class="dot"></span><span>Goede informatie en betrouwbare bronnen bieden</span></div>
-          <div class="aanpak-item"><span class="dot"></span><span>Geschreven materialen en wetenschappelijke onderbouwing</span></div>
-          <div class="aanpak-item"><span class="dot"></span><span>Aansluiting bij eigen professionele nieuwsgierigheid</span></div>
-        </div></div>
-      </div>
-      <div class="groep-card middle" onclick="selectGroep('middle', this)">
-        <div class="groep-badge">&#x1F91D; De brede middengroep</div><span class="groep-figuur">👥</span>
-        <div class="groep-naam">De brede middengroep</div>
-        <div style="font-size:11px;color:var(--grijs-mid);font-style:italic;margin-bottom:8px;">ook wel: middle majority</div>
-        <div class="groep-motivatie">Gemotiveerd door groepsgevoel en sociale omgeving. Volgen de norm van de groep.</div>
-        <div class="groep-aanpak-hint">Klik voor de aanpak &#x2193;</div>
-        <div class="groep-aanpak"><h5>Passende aanpak</h5><div class="aanpak-items">
-          <div class="aanpak-item"><span class="dot"></span><span>Vertrouwde collega's en informele voortrekkers inzetten</span></div>
-          <div class="aanpak-item"><span class="dot"></span><span>Activiteiten met collega's en terugkoppeling van collega's</span></div>
-          <div class="aanpak-item"><span class="dot"></span><span>Lokale bijeenkomsten om gezamenlijk tot afspraken te komen</span></div>
-        </div></div>
-      </div>
-      <div class="groep-card laggard" onclick="selectGroep('laggard', this)">
-        <div class="groep-badge">&#x1F6A7; Achterblijvers</div><span class="groep-figuur">🧱</span>
-        <div class="groep-naam">Achterblijvers</div>
-        <div style="font-size:11px;color:var(--grijs-mid);font-style:italic;margin-bottom:8px;">ook wel: laggards</div>
-        <div class="groep-motivatie">Hebben externe druk nodig. Bewegen pas als er duidelijke kaders en consequenties zijn.</div>
-        <div class="groep-aanpak-hint">Klik voor de aanpak &#x2193;</div>
-        <div class="groep-aanpak"><h5>Passende aanpak</h5><div class="aanpak-items">
-          <div class="aanpak-item"><span class="dot"></span><span>Duidelijke regelgeving en onderlinge afspraken</span></div>
-          <div class="aanpak-item"><span class="dot"></span><span>Beloningen en consequenties</span></div>
-          <div class="aanpak-item"><span class="dot"></span><span>Praktische ondersteuning en duidelijk leiderschap</span></div>
-        </div></div>
-      </div>
-    </div>
-    <div class="vraag-box">
-      <h3>Wie zijn jouw zorgverleners?</h3>
-      <p>Selecteer de groep die het beste past bij jouw situatie om de aanpak te zien. Ga daarna naar de do's voor concrete handelingen per fase.</p>
-      <div class="vraag-opties">
-        <button class="vraag-btn" onclick="beantwoordVraag('innovator', this)">&#x1F31F; Vroege vernieuwers</button>
-        <button class="vraag-btn" onclick="beantwoordVraag('middle', this)">&#x1F91D; Brede middengroep</button>
-        <button class="vraag-btn" onclick="beantwoordVraag('laggard', this)">&#x1F6A7; Achterblijvers</button>
-        <button class="vraag-btn" onclick="beantwoordVraag('mix', this)">&#x1FA84; Gemengde groep</button>
-      </div>
-      <div class="vraag-resultaat" id="vraagResultaat">
-        <h4 id="resultaatTitel"></h4>
-        <ul id="resultaatLijst"></ul>
-      </div>
-      <button class="vraag-btn" style="margin-top:8px; background: var(--geel); border-color: var(--geel); color: var(--groen-donker);" onclick="switchTab('dos', document.querySelectorAll('.tab-btn')[2])">Ga naar de do's &#x2192;</button>
-    </div>
-  </div>
-  
-  <div class="section-wrap">
-    <div class="section-title">
-      <div class="section-num">2</div>
-      <div>
         <h2>Vijf fasen van gedragsverandering</h2>
-        <div class="section-source">Bron: Wensing &amp; Grol (2020), Tabel 10.1, p. 199 — klik op een fase, dan op een strategie voor de bijpassende do's</div>
+        <div class="section-source">Bron: Wensing &amp; Grol (2020), Tabel 10.1, p. 199 – klik op een fase voor barrières en bijpassende do's</div>
       </div>
     </div>
 
@@ -373,16 +61,11 @@
     </div>
 
     <div class="fase-detail" id="faseDetail">
-      <div class="detail-grid">
-        <div class="detail-col barriere">
-          <h4>Barrières</h4>
-          <div class="barriere-tags" id="barriereTags"></div>
-        </div>
-        <div class="detail-col strategie">
-          <h4>Strategieën — klik voor bijpassende do's</h4>
-          <div class="strategie-btns" id="strategieBtns"></div>
-        </div>
+      <div class="barriere-sectie">
+        <div class="barriere-label">Barrières</div>
+        <div class="barriere-tags" id="barriereTags"></div>
       </div>
+      <div id="strategieGroepen"></div>
     </div>
     <p class="detail-hint" id="detailHint">Klik op een fase voor barrières en strategieën</p>
   </div>
@@ -394,378 +77,74 @@
   </div>
 </div>
 
-<!-- ===== DO'S TAB ===== -->
-<div class="tab-panel" id="tab-dos">
+
+<!-- ===== VOORBEELDEN ===== -->
+<div class="tab-panel" id="tab-voorbeelden">
   <div class="section-wrap">
-    <div class="dos-fase-nav" id="dosFaseNav">
-      <button class="dos-fase-btn active" onclick="switchDosFase(0, this)"><span class="dos-fase-icon">👁️</span>Oriëntatie</button>
-      <button class="dos-fase-btn" onclick="switchDosFase(1, this)"><span class="dos-fase-icon">🔍</span>Inzicht</button>
-      <button class="dos-fase-btn" onclick="switchDosFase(2, this)"><span class="dos-fase-icon">⚖️</span>Acceptatie</button>
-      <button class="dos-fase-btn" onclick="switchDosFase(3, this)"><span class="dos-fase-icon">🔄</span>Verandering</button>
-      <button class="dos-fase-btn" onclick="switchDosFase(4, this)"><span class="dos-fase-icon">🏛️</span>Borging</button>
+    <div class="section-title">
+      <div class="section-num">★</div>
+      <div>
+        <h2>Voorbeelden uit de praktijk</h2>
+        <div class="section-source">Ervaringen van instellingen — inspirerend en leerzaam</div>
+      </div>
     </div>
-    <div id="dosFasePanels"></div>
-  </div>
-</div>
+    <div class="vb-filters" id="vbFilters"></div>
+    <div class="vb-grid" id="vbGrid"></div>
 
-<script>
-// ===== DATA =====
-
-const faseNamen = ['Oriëntatie','Inzicht','Acceptatie','Verandering','Borging'];
-const faseIconen = ['👁️','🔍','⚖️','🔄','🏛️'];
-const faseBeschrijvingen = [
-  'De zorgverlener is nog niet bekend met de innovatie of ziet er geen aanleiding in.',
-  'De zorgverlener heeft kennis nodig en moet inzicht krijgen in het eigen handelen.',
-  'De zorgverlener weegt voor- en nadelen af en moet overtuigd worden van de haalbaarheid.',
-  'De zorgverlener is bereid maar ondervindt praktische belemmeringen bij het daadwerkelijk anders doen.',
-  'Het nieuwe gedrag moet ingebed worden zodat terugval wordt voorkomen.'
-];
-
-// Alle do's
-const alleDos = [
-  {
-    id: 'communicatie', icon: '📡',
-    titel: 'Breng samen met je communicatieadviseur de kanalen in kaart',
-    waarom: 'Korte, gerichte berichten via de juiste kanalen bereiken zorgverleners die je via directe weg niet bereikt. Een communicatieadviseur kent de interne en externe kanalen en doelgroepen van de organisatie.',
-    fasen: [0],
-    voorbeeld: 'Bespreek met je communicatieadviseur welke interne kanalen (nieuwsbrief, intranet, teamoverleg) en externe kanalen beschikbaar zijn om het thema palliatieve zorg onder de aandacht te brengen.'
-  },
-  {
-    id: 'naar-zorgverlener', icon: '🚶',
-    titel: 'Ga naar de zorgverlener toe',
-    waarom: 'De zorgverlener hoeft niets extra\'s te doen. Het thema komt naar waar de professional al is.',
-    fasen: [0,1],
-    voorbeeld: 'Sluit met informatie over het beoogde zorgsysteem aan bij een scholing die de zorgverleners toch al volgen.'
-  },
-  {
-    id: 'open-vraag', icon: '❓',
-    titel: 'Stel de open vraag',
-    waarom: 'Een goede vraag zet iemand aan het denken over eigen handelen zonder weerstand op te roepen. Informatie geven raakt de ander minder.',
-    fasen: [0,1],
-    voorbeeld: '\'Wanneer heb jij voor het laatst een patiënt gemarkeerd?\' of \'Hoe weet jij of een patiënt al een aanspreekpunt heeft?\''
-  },
-  {
-    id: 'patientverhalen', icon: '💬',
-    titel: 'Gebruik patiëntverhalen en naastesverhalen',
-    waarom: 'Emotie opent wat ratio sluit. Herkenbare verhalen doorbreken verdedigingsmechanismen die abstracte informatie niet doorbreekt.',
-    fasen: [0,1],
-    voorbeeld: 'Deel het verhaal van een naaste die beschrijft hoe het gemis van een vast aanspreekpunt voelde. Gebruik materiaal uit \'Een kwestie van geluk\'.'
-  },
-  {
-    id: 'spiegeldata', icon: '📈',
-    titel: 'Bied spiegeldata aan op teamniveau',
-    waarom: 'Concrete data over het eigen team maakt een probleem onmiskenbaar zonder persoonlijk aanvallend te zijn.',
-    fasen: [1,2],
-    voorbeeld: 'Laat zien hoeveel patiënten in dit team tijdig gemarkeerd zijn, afgezet tegen de regionale cijfers. Gebruik dit als gespreksopener, niet als aanklacht.'
-  },
-  {
-    id: 'feedback', icon: '🤝',
-    titel: 'Geef directe, veilige feedback na een concreet moment',
-    waarom: 'Feedback op gedrag dat net heeft plaatsgevonden is het meest effectief. Veiligheid is voorwaarde: zonder veiligheid roept het weerstand op.',
-    fasen: [1,3],
-    voorbeeld: 'Na een MDO vraagt de transformatieaanjager: \'Ik zag dat patiënt X aan de orde was. Hoe kijk jij naar de fase waarin die patiënt zit?\''
-  },
-  {
-    id: 'casuistiek', icon: '🩺',
-    titel: 'Gebruik casuïstiek als leermiddel',
-    waarom: 'Concrete gevallen maken het abstracte zorgsysteem herkenbaar. Herkenning in de eigen praktijk werkt sterker dan theorie.',
-    fasen: [1,2],
-    voorbeeld: 'Breng in een MDO een casus in met de vraag: \'Op welk moment had hier de palliatieve fase gemarkeerd kunnen worden?\''
-  },
-  {
-    id: 'rolmodel', icon: '🌟',
-    titel: 'Zet een directe collega in als rolmodel',
-    waarom: 'Identificatie en nabootsing: als iemand zoals ik het ook doet, moet er iets goeds in zitten.',
-    fasen: [0,2],
-    voorbeeld: 'Een huisarts vertelt hoe zij ertoe kwam PZP-gesprekken te voeren en wat dat opleverde voor haar patiënten.'
-  },
-  {
-    id: 'ambassadeur', icon: '📣',
-    titel: 'Activeer een lokale aandachtsvelder of ambassadeur',
-    waarom: 'Een collega die structureel aanwezig is houdt het thema levend in het team, ook als de transformatieaanjager er niet bij is.',
-    fasen: [0,2],
-    voorbeeld: 'Identificeer in een team de meest enthousiaste verpleegkundige over palliatieve zorg en ondersteun haar om die rol informeel op te pakken.'
-  },
-  {
-    id: 'sociale-norm', icon: '📊',
-    titel: 'Maak de sociale norm zichtbaar',
-    waarom: 'Mensen willen niet afwijken van wat anderen zoals zij doen. Als de norm verschuift, verschuift het gedrag mee.',
-    fasen: [2],
-    voorbeeld: 'Deel in een teambijeenkomst welke organisaties in de regio al werken met een casemanager palliatieve zorg en wat dat oplevert.'
-  },
-  {
-    id: 'waarden', icon: '🎯',
-    titel: 'Verbind aan persoonlijk voordeel of waarden',
-    waarom: 'Aansluitend bij wat de professional zelf belangrijk vindt verlaagt weerstand en verhoogt intrinsieke motivatie.',
-    fasen: [2,3],
-    voorbeeld: 'Benadruk hoe betere palliatieve zorg werkdruk verlaagt, werkvoldoening vergroot en onnodige spoedmomenten voorkomt.'
-  },
-  {
-    id: 'groter-doel', icon: '🌿',
-    titel: 'Verbind aan het grotere doel',
-    waarom: 'Zorgverleners die zich verbinden aan een hoger doel zijn intrinsiek gemotiveerder en veerkrachtiger bij obstakels.',
-    fasen: [2,3],
-    voorbeeld: 'Sluit een gesprek af met: \'Waar doen we het eigenlijk voor?\' en koppel dat aan de centrale ambitie: van een kwestie van geluk naar een staat van vertrouwen.'
-  },
-  {
-    id: 'routine', icon: '⚓',
-    titel: 'Koppel nieuw gedrag aan een vaste routine',
-    waarom: 'Gedrag gekoppeld aan een bestaand ritueel kost minder mentale energie en beklijft beter.',
-    fasen: [3,4],
-    voorbeeld: 'Spreek af dat in elk wekelijks teamoverleg één patiënt wordt besproken aan de hand van de surprise question.'
-  },
-  {
-    id: 'drempel', icon: '🗺️',
-    titel: 'Verlaag de zoek- en handelingsdrempel',
-    waarom: 'Als het gewenste gedrag minder moeite kost, wordt het vaker vertoond, ook zonder sterke intrinsieke motivatie.',
-    fasen: [3],
-    voorbeeld: 'Zorg voor een eenvoudig vindbaar overzicht met het telefoonnummer van het PTMN, zodat raadplegen geen zoekwerk kost.'
-  },
-  {
-    id: 'expertise', icon: '📞',
-    titel: 'Zorg voor laagdrempelige toegang tot expertise',
-    waarom: 'Zorgverleners die twijfelen schakelen geen hulp in als dat moeite kost. Drempelvrije consultatie verlaagt de actiedrempel.',
-    fasen: [3],
-    voorbeeld: 'Maak de consultatiemogelijkheid van het PTMN actief bekend in het team, niet via een mail maar via een concreet moment: \'Bel eens, ik ben er ook bij.\''
-  },
-  {
-    id: 'structuur', icon: '🏗️',
-    titel: 'Verankering in structuur en werkprocessen',
-    waarom: 'Gedrag ingebed in structuur is minder afhankelijk van individuele motivatie.',
-    fasen: [3,4],
-    voorbeeld: 'Zorg dat markering een vast onderdeel wordt van het opname- of overdrachtsformulier, zodat het standaard uitgevraagd wordt.'
-  },
-];
-
-// Strategieën per fase, met gekoppelde do-id's
-const fasenData = [
-  {
-    naam: 'Oriëntatie',
-    barrières: ['Niet bekend met de innovatie','Geen interesse of gevoel van urgentie'],
-    strategieën: [
-      { label: 'Korte berichten via alle kanalen', dos: ['communicatie'] },
-      { label: 'Persoonlijke benadering', dos: ['naar-zorgverlener','ambassadeur','rolmodel'] },
-      { label: 'Confrontatie met eigen prestaties', dos: ['open-vraag','patientverhalen'] },
-    ]
-  },
-  {
-    naam: 'Inzicht',
-    barrières: ['Geen kennis of begrip','Geen zelfinzicht of overschatting van eigen prestaties'],
-    strategieën: [
-      { label: 'Heldere instructiematerialen en herhaling', dos: ['naar-zorgverlener','patientverhalen'] },
-      { label: 'Audit, peer review en feedback', dos: ['spiegeldata','feedback','casuistiek'] },
-    ]
-  },
-  {
-    naam: 'Acceptatie',
-    barrières: ['Negatieve houding of twijfel','Niet bereid of niet vertrouwend op eigen mogelijkheden'],
-    strategieën: [
-      { label: 'Lokale discussie en consensus', dos: ['sociale-norm','spiegeldata'] },
-      { label: 'Betrek opinion leaders', dos: ['rolmodel','ambassadeur'] },
-      { label: 'Demonstreer haalbaarheid via collega\'s', dos: ['waarden','groter-doel','sociale-norm'] },
-    ]
-  },
-  {
-    naam: 'Verandering',
-    barrières: ['Geen tijd of vaardigheden','Innovatie past niet in bestaand werkproces'],
-    strategieën: [
-      { label: 'Extra ondersteuning en training', dos: ['expertise','drempel','waarden'] },
-      { label: 'Herinrichting van zorgprocessen', dos: ['structuur','routine'] },
-      { label: 'Feedback en begeleiding', dos: ['feedback','groter-doel'] },
-    ]
-  },
-  {
-    naam: 'Borging',
-    barrières: ['Terugval in oud gedrag','Innovatie niet ingebed in de organisatie'],
-    strategieën: [
-      { label: 'Monitoring, feedback en reminders', dos: ['spiegeldata','feedback'] },
-      { label: 'Integratie in protocollen en zorgplannen', dos: ['structuur','routine'] },
-    ]
-  },
-];
-
-// ===== TABS =====
-function switchTab(id, btn) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  btn.classList.add('active');
-}
-
-// ===== FASEN =====
-let activeFase = null;
-let activeStrategie = null;
-
-function toggleFase(idx) {
-  const cards = document.querySelectorAll('.fase-card');
-  const detail = document.getElementById('faseDetail');
-  const hint = document.getElementById('detailHint');
-
-  if (activeFase === idx) {
-    cards[idx].classList.remove('active');
-    detail.classList.remove('visible');
-    hint.style.display = 'block';
-    activeFase = null;
-    activeStrategie = null;
-    return;
-  }
-
-  cards.forEach(c => c.classList.remove('active'));
-  cards[idx].classList.add('active');
-  activeFase = idx;
-  activeStrategie = null;
-
-  const data = fasenData[idx];
-  document.getElementById('barriereTags').innerHTML =
-    data.barrières.map(b => `<span class="btag">${b}</span>`).join('');
-
-  // Build strategie buttons
-  document.getElementById('strategieBtns').innerHTML = data.strategieën.map((s, si) => `
-    <div>
-      <button class="strategie-btn" onclick="toggleStrategie(${idx}, ${si}, this)">
-        <span>${s.label}</span>
-        <div style="display:flex;align-items:center;gap:6px;">
-          <span class="strategie-dos-count">${s.dos.length} do's</span>
-          <span class="strategie-btn-arrow">&#x25BA;</span>
+    <div class="vb-inzend-sectie">
+      <div class="vb-inzend-header">
+        <div>
+          <div class="vb-inzend-vraag">Heb je zelf een voorbeeld?</div>
+          <div class="vb-inzend-sub">Deel je ervaring — inspirerend of leerzaam</div>
         </div>
-      </button>
-      <div class="strategie-dos-panel" id="sdp-${idx}-${si}">
-        <div class="sdp-header">${s.label}</div>
-        <div style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px;">
-          <p style="font-size:13px; color:var(--tekst); line-height:1.6; margin:0;">Deze strategie omvat <strong>${s.dos.length} concrete do's</strong>. Bekijk ze in het tabblad <em>Do's voor de praktijk</em>, gefilterd op de bijbehorende fase.</p>
-          <button onclick="naarDosTab(${idx})" style="display:inline-flex;align-items:center;gap:8px;background:var(--groen-donker);border:none;color:var(--geel);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:10px 18px;border-radius:8px;cursor:pointer;">Bekijk do's voor fase ${idx+1} &#x2192;</button>
+        <button class="vb-inzend-btn" onclick="toggleVbForm()">✉ Stuur een voorbeeld in</button>
+      </div>
+      <div class="vb-inzend-form" id="vbForm">
+        <div class="vb-form-grid">
+          <div class="vb-form-veld">
+            <label>Titel</label>
+            <input type="text" id="vbTitel" placeholder="Korte omschrijving van het voorbeeld">
+          </div>
+          <div class="vb-form-veld">
+            <label>Instelling</label>
+            <input type="text" id="vbInstelling" placeholder="Naam van de instelling">
+          </div>
+          <div class="vb-form-veld">
+            <label>Type</label>
+            <div class="vb-radio-groep">
+              <label><input type="radio" name="vbType" value="inspirerend"> Inspirerend</label>
+              <label><input type="radio" name="vbType" value="aandachtspunt"> Aandachtspunt</label>
+            </div>
+          </div>
+          <div class="vb-form-veld">
+            <label>Fase</label>
+            <select id="vbFase">
+              <option value="">Kies een fase...</option>
+              <option>Oriëntatie</option>
+              <option>Inzicht</option>
+              <option>Acceptatie</option>
+              <option>Verandering</option>
+              <option>Borging</option>
+            </select>
+          </div>
+          <div class="vb-form-veld vb-form-breed">
+            <label>Strategie <span class="vb-form-optioneel">(optioneel)</span></label>
+            <select id="vbStrategie"></select>
+          </div>
+          <div class="vb-form-veld vb-form-breed">
+            <label>Beschrijving</label>
+            <textarea id="vbBeschrijving" rows="4" placeholder="Wat er gebeurde, wat het opleverde of wat je ervan leerde..."></textarea>
+          </div>
+        </div>
+        <div class="vb-form-acties">
+          <button class="vb-verzend-btn" onclick="verstuurVoorbeeldMail()">Verstuur via e-mail →</button>
+          <button class="vb-annuleer-btn" onclick="toggleVbForm()">Annuleer</button>
         </div>
       </div>
     </div>
-  `).join('');
+  </div>
+</div>
 
-  detail.classList.add('visible');
-  hint.style.display = 'none';
-}
-
-function toggleStrategie(faseIdx, si, btn) {
-  const panelId = `sdp-${faseIdx}-${si}`;
-  const panel = document.getElementById(panelId);
-  const allBtns = document.querySelectorAll('.strategie-btn');
-  const allPanels = document.querySelectorAll('.strategie-dos-panel');
-
-  const isOpen = panel.classList.contains('visible');
-
-  allBtns.forEach(b => b.classList.remove('active'));
-  allPanels.forEach(p => p.classList.remove('visible'));
-
-  if (!isOpen) {
-    btn.classList.add('active');
-    panel.classList.add('visible');
-  }
-}
-
-function toggleMiniDo(kaart) {
-  kaart.classList.toggle('open');
-}
-
-// ===== DOS TAB =====
-let activeDosFase = 0;
-
-function buildDosPanels() {
-  const container = document.getElementById('dosFasePanels');
-  container.innerHTML = fasenData.map((fase, fi) => {
-    const panelHtml = fase.strategieën.map(s => {
-      const dosHtml = s.dos.map(doId => {
-        const d = alleDos.find(x => x.id === doId);
-        if (!d) return '';
-        const faseBadges = d.fasen.map(f => `<span class="fase-badge">${faseIconen[f]} ${faseNamen[f]}</span>`).join('');
-        return `
-          <div class="do-kaart" onclick="toggleDoKaart(this)">
-            <div class="do-kaart-header">
-              <div class="do-kaart-icon">${d.icon}</div>
-              <div class="do-kaart-titel">${d.titel}</div>
-              <div class="do-kaart-chevron">&#x25BC;</div>
-            </div>
-            <div class="do-kaart-body">
-              <div class="do-kaart-waarom">${d.waarom}</div>
-              <div class="do-kaart-fasen">${faseBadges}</div>
-              <div class="do-kaart-voorbeeld-label">Voorbeeld</div>
-              <div class="do-kaart-voorbeeld">${d.voorbeeld}</div>
-            </div>
-          </div>`;
-      }).join('');
-      return `
-        <div class="dos-strategie-groep">
-          <div class="dos-strategie-label">${s.label}</div>
-          <div class="dos-kaarten">${dosHtml}</div>
-        </div>`;
-    }).join('');
-
-    return `
-      <div class="dos-fase-panel${fi === 0 ? ' active' : ''}" id="dos-fase-${fi}">
-        <div class="dos-fase-header">
-          <h3>${faseIconen[fi]} ${fase.naam}</h3>
-          <p>${faseBeschrijvingen[fi]}</p>
-        </div>
-        ${panelHtml}
-      </div>`;
-  }).join('');
-}
-
-function switchDosFase(idx, btn) {
-  document.querySelectorAll('.dos-fase-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.dos-fase-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('dos-fase-' + idx).classList.add('active');
-  btn.classList.add('active');
-  activeDosFase = idx;
-}
-
-function naarDosTab(faseIdx) {
-  // Switch to dos tab
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-dos').classList.add('active');
-  document.querySelectorAll('.tab-btn')[2].classList.add('active');
-  // Switch to correct fase
-  const btn = document.querySelectorAll('.dos-fase-btn')[faseIdx];
-  switchDosFase(faseIdx, btn);
-  setTimeout(() => document.getElementById('tab-dos').scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
-}
-
-function toggleDoKaart(kaart) {
-  kaart.classList.toggle('open');
-}
-
-// ===== GROEPEN =====
-const groepData = {
-  innovator: { titel: 'Aanpak voor vroege vernieuwers', items: ['Bied goede informatie en betrouwbare wetenschappelijke bronnen','Gebruik geschreven materialen en onderbouwde documentatie','Sluit aan bij hun intrinsieke motivatie en professionele nieuwsgierigheid'] },
-  middle: { titel: 'Aanpak voor de brede middengroep', items: ['Zet vertrouwde collega\'s en informele voortrekkers in','Organiseer activiteiten met collega\'s en faciliteer terugkoppeling van collega\'s','Houd lokale bijeenkomsten om gezamenlijk tot afspraken te komen'] },
-  laggard: { titel: 'Aanpak voor achterblijvers', items: ['Stel duidelijke regelgeving en onderlinge afspraken op','Werk met beloningen en consequenties','Bied praktische ondersteuning en zorg voor duidelijk leiderschap'] },
-  mix: { titel: 'Aanpak voor een gemengde groep', items: ['Zet voor vroege vernieuwers in op informatie en bronnen','Gebruik voor de brede middengroep vertrouwde collega\'s en lokale bijeenkomsten','Geef achterblijvers duidelijke kaders, ondersteuning en consequenties','Differentieer je strategie en pas de inzet aan per subgroep'] }
-};
-let activeVraagBtn = null;
-
-function selectGroep(type, el) {
-  document.querySelectorAll('.groep-card').forEach(c => c.classList.remove('selected'));
-  el.classList.add('selected');
-}
-
-function beantwoordVraag(type, btn) {
-  if (activeVraagBtn) activeVraagBtn.classList.remove('actief');
-  if (activeVraagBtn === btn) {
-    activeVraagBtn = null;
-    document.getElementById('vraagResultaat').classList.remove('visible');
-    document.querySelectorAll('.groep-card').forEach(c => c.classList.remove('selected'));
-    return;
-  }
-  btn.classList.add('actief'); activeVraagBtn = btn;
-  document.querySelectorAll('.groep-card').forEach(c => c.classList.remove('selected'));
-  if (type !== 'mix') { const k = document.querySelector('.groep-card.' + type); if (k) k.classList.add('selected'); }
-  else document.querySelectorAll('.groep-card').forEach(c => c.classList.add('selected'));
-  const data = groepData[type];
-  document.getElementById('resultaatTitel').textContent = data.titel;
-  document.getElementById('resultaatLijst').innerHTML = data.items.map(i => `<li>${i}</li>`).join('');
-  document.getElementById('vraagResultaat').classList.add('visible');
-}
-
-// Init
-buildDosPanels();
-</script>
+<script src="script.js" defer></script>
 </body>
 </html>

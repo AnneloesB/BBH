@@ -161,8 +161,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--groen-xpale); color
 .vb-strategie-chip { display: inline-flex; align-items: center; gap: 8px; background: var(--oranje-pale); border: 1px solid var(--oranje-border); color: #8a3d14; font-size: 13px; padding: 6px 14px; border-radius: 30px; }
 .vb-chip-sluit { background: none; border: none; cursor: pointer; font-size: 13px; color: #8a3d14; padding: 0; line-height: 1; }
 
-.vb-strategie-link { background: none; border: none; color: var(--groen-mid); font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; cursor: pointer; padding: 0 0 0 12px; letter-spacing: 0.5px; opacity: 0.8; transition: opacity 0.2s, color 0.2s; white-space: nowrap; }
-.vb-strategie-link:hover { opacity: 1; color: var(--groen-donker); }
+.vb-strategie-link { background: none; border: 1.5px solid var(--groen-mid); border-radius: 6px; color: var(--groen-mid); font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; cursor: pointer; padding: 4px 10px; margin-left: 12px; letter-spacing: 0.5px; opacity: 0.85; transition: opacity 0.2s, color 0.2s, background 0.2s; white-space: nowrap; }
+.vb-strategie-link:hover { opacity: 1; color: var(--groen-donker); border-color: var(--groen-donker); background: rgba(0,0,0,0.04); }
 
 .vb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-bottom: 40px; }
 .vb-leeg { grid-column: 1 / -1; text-align: center; padding: 48px 24px; color: var(--grijs-mid); font-size: 15px; line-height: 1.7; }

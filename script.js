@@ -298,7 +298,7 @@ function toggleFase(idx) {
     }).join('');
     const vbCount = voorbeeldenData.filter(v => v.strategieën && v.strategieën.includes(s.label)).length;
     const safeLabel = s.label.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-    const vbLink = `<button class="vb-strategie-link" onclick="event.stopPropagation(); openVoorbeeldenVoorStrategie('${safeLabel}')">${vbCount > 0 ? vbCount + ' voorbeeld' + (vbCount > 1 ? 'en' : '') : 'Voorbeelden'} →</button>`;
+    const vbLink = `<button class="vb-strategie-link" onclick="event.stopPropagation(); openVoorbeeldenVoorStrategie('${safeLabel}')">${vbCount > 0 ? vbCount + ' voorbeelden uit de praktijk' : 'Voorbeelden uit de praktijk'} →</button>`;
     return `
       <div class="dos-strategie-groep">
         <div class="dos-strategie-label">${s.label}${vbLink}</div>
